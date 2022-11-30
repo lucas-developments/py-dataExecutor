@@ -1,7 +1,7 @@
 import os
 import random
 
-print ("Sehr geehrter", os.getlogin(), "dies ist ein Dataexecuter. Bitte pass auf während deine Daten verarbeitet werden!")
+print ("Sehr geehrter", os.getlogin(), "dies ist ein Dataexecuter. Bitte pass auf während Ihre Daten verarbeitet werden!")
 
 Zahl1 = int(0)
 Zahl2 = 0
@@ -80,26 +80,26 @@ def Abfrage():
         elif ExecuterAbfrage.lower().startswith("r"):
             RandomZahl1= int(input("Geben Sie eine Zahl ein!\n"))
             RandomZahl2 = int(input("Geben Sie eine weitere Zahl ein!\n"))
-            print("Deine Zufallszahl ist: ",random.randint(RandomZahl1, RandomZahl2))
+            print("Ihre Zufallszahl ist: ",random.randint(RandomZahl1, RandomZahl2))
             AbfrageBestanden = AbfrageBestanden + 1
             exit()
         elif ExecuterAbfrage.lower().startswith("c"):
             ConvertExecutor = str((input("Wollen Sie einen Wert konvertieren?  [Ja / Nein]\n")))
             if ConvertExecutor.lower().startswith("j"):
                 ConvertType = str(input("Geben Sie den Typ an, welchen Sie konvertieren wollen. Möglich sind: \n float [konvertiert in einen Integer (ganze Zahl)]\n Integer [konvertiert in einen float (Kommazahl)]\n String [Überprüfung auf Zahlen (digit)\n"))
-                if ConvertType.lower().startswith("f"):
+                if ConvertType.lower() == "float":
                     ConvertFloat = float(input("Geben Sie ihre Kommazahl ein.\n"))
-                    print ("Dein Datentyp wird nun konvertiert. Dein eingegebener Wert ist:", ConvertFloat)
+                    print ("Ihr Datentyp wird nun konvertiert. Ihr eingegebener Wert ist:\n", ConvertFloat)
                     AbfrageBestanden = AbfrageBestanden + 1
                     RunConvert()
-                elif ConvertType.lower().startswith("i"):
-                    ConvertNumber == int(input("Geben Sie ihren Integer ein."))
-                    print ("Dein Datentyp wird nun konvertiert. Dein eingegebener Wert ist:", ConvertNumber)
+                elif ConvertType == "Integer" or ConvertType == "integer":
+                    ConvertNumber == int(input("Geben Sie ihren Integer ein.\n"))
+                    print ("Ihr Datentyp wird nun konvertiert. Ihr eingegebener Wert ist:\n", ConvertNumber)
                     AbfrageBestanden = AbfrageBestanden + 1
                     RunConvert()
-                elif ConvertType.lower().startswith("s"):
-                    ConvertString = str(input("Geben Sie ihren String ein, welcher überprüft werden soll."))
-                    print ("Dein Datentyp wird nun konvertiert. Dein eingegebener Wert ist:", ConvertString)
+                elif ConvertType.lower() == "String" or ConvertType == "string":
+                    ConvertString = str(input("Geben Sie ihren String ein, welcher überprüft werden soll.\n"))
+                    print ("Ihr Datentyp wird nun konvertiert. Ihr eingegebener Wert ist:\n", ConvertString)
                     AbfrageBestanden = AbfrageBestanden + 1
                     RunConvert()
             elif ConvertExecutor.lower().startswith("n"):
@@ -112,13 +112,13 @@ def RunFloatExecuter():
     global RechenopreatorFloat
 
     if RechenopreatorFloat == "+":
-        print(float(Zahl1 + Zahl2))
+        print("Ihr Ergebnis beträgt: \n", float(Zahl1 + Zahl2))
     elif RechenopreatorFloat == "-":
-        print(float(Zahl1 - Zahl2))
+        print("Ihr Ergebnis beträgt: \n", float(Zahl1 - Zahl2))
     elif RechenopreatorFloat == "*":
-        print(float(Zahl1 * Zahl2))
+        print("Ihr Ergebnis beträgt: \n", float(Zahl1 * Zahl2))
     elif RechenopreatorFloat == "/":
-        print(float(Zahl1 / Zahl2))
+        print("Ihr Ergebnis beträgt: \n", float(Zahl1 / Zahl2))
     else:
         Abfrage()
 
@@ -134,7 +134,7 @@ def RunStringExecuter():
     elif StringConvertOperator == "swap":
         print(StringConvert.swapcase())
     elif StringConvertOperator == "find":
-        print("Die Postion an der sich dein Wort befindet ist:" , StringConvert.find(StringFind))
+        print("Die Postion an der sich Ihr Wort befindet ist:\n" , StringConvert.find(StringFind))
 
 def RunIntExecutor():
     global IntZahl1
@@ -142,13 +142,13 @@ def RunIntExecutor():
     global RechenopreatorInt
     
     if RechenopreatorInt == "+":
-        print (int(IntZahl1 + IntZahl2))
+        print ("Ihr Ergebnis beträgt: \n", int(IntZahl1 + IntZahl2))
     elif RechenopreatorInt == "-":
-        print (int(IntZahl1 + IntZahl2))
+        print ("Ihr Ergebnis beträgt: \n", int(IntZahl1 + IntZahl2))
     elif RechenopreatorInt == "*":
-        print (int(IntZahl1 * IntZahl2))
+        print ("Ihr Ergebnis beträgt: \n", int(IntZahl1 * IntZahl2))
     elif RechenopreatorInt == "/":
-        print (int(IntZahl1 / IntZahl2))
+        print ("Ihr Ergebnis beträgt: \n", int(IntZahl1 / IntZahl2))
     else:
         Abfrage()
     
@@ -158,7 +158,16 @@ def RunConvert():
     global ConvertFloat
     global ConvertNumber
 
-    if ConvertString == "float":
-        ConvertFloat = print(int("Dein Ergebnis beträgt: ",ConvertFloat))
+    if ConvertType == "float" or ConvertType == "Float":
+        ConvertFloat = int(ConvertFloat)
+        ConvertFloat = print("Ihr Ergebnis beträgt: \n",ConvertFloat)
+    elif ConvertType == "Integer" or ConvertType == "integer":
+        ConvertNumber = float(ConvertNumber)
+        ConvertNumber = print("Ihr Ergebnis beträgt: \n", ConvertNumber)
+    elif ConvertType == "String" or ConvertType == "string":
+        if ConvertString.isdigit() == True:
+            print(str("Ihr String enthält zahlen!"))
+        elif ConvertType.isdigit() == False:
+            print ("Ihr String enthält keine Zahlen")
 
 Abfrage()
