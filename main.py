@@ -14,11 +14,10 @@ print ("███████║██╔██╗ ██║██║  ██║
 print ("██╔══██║██║╚██╗██║██║  ██║    ██║     ██║   ██║██║╚██╗██║╚██╗ ██╔╝██╔══╝  ██╔══██╗   ██║   ██╔══╝  ██╔══██╗")
 print ("██║  ██║██║ ╚████║██████╔╝    ╚██████╗╚██████╔╝██║ ╚████║ ╚████╔╝ ███████╗██║  ██║   ██║   ███████╗██║  ██║")
 print ("╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝")
-
 print()
 print()
 print()
-print ("Sehr geehrter", os.getlogin(), "dies ist ein Dataexecuter. Bitte pass auf während Ihre Daten verarbeitet werden!")
+print ("Sehr geehrter", os.getlogin(), "dies ist ein Dataexecutor. Bitte pass auf während Ihre Daten verarbeitet werden!")
 
 Zahl1 = int(0)
 Zahl2 = 0
@@ -35,7 +34,7 @@ ConvertFloat = 0.0
 ConvertNumber = 0
 
 def Abfrage():
-    ExecuterAbfrage = str(input("Wählen Sie eine der möglichen Verarbeitungsmöglichkeiten. Möglich sind: float, String, Number, random, convert\n"))
+    ExecutorAbfrage = str(input("Wählen Sie eine der möglichen Verarbeitungsmöglichkeiten. Möglich sind: float, String, Number, random, convert\n"))
     AbfrageBestanden = 0
     global Zahl1
     global Zahl2
@@ -52,22 +51,22 @@ def Abfrage():
     global ConvertNumber 
     
     while AbfrageBestanden == 0:
-        if ExecuterAbfrage.lower().startswith("f"):
-            FloatExecuter = str(input("Wollen Sie eine Kommazahl verarbeiten? [Ja / Nein]\n"))
-            if FloatExecuter.lower().startswith("j"):
+        if ExecutorAbfrage.lower().startswith("f"):
+            FloatExecutor = str(input("Wollen Sie eine Kommazahl verarbeiten? [Ja / Nein]\n"))
+            if FloatExecutor.lower().startswith("j"):
                 print ("Zulässige Zeichen sind:\n +, -, *, /\n")
                 RechenopreatorFloat = str(input("Wählen Sie einen Rechenopreator.\n"))
                 Zahl1 = float(input("Wählen Sie ihre erste Zahl.\n"))
                 Zahl2 = float(input("Wählen Sie ihre zweite Zahl.\n"))
                 print("Ihre Verarbeitung beginnt nun!")
                 AbfrageBestanden = AbfrageBestanden + 1
-                RunFloatExecuter()
-            elif FloatExecuter.lower().startswith("n"):
+                RunFloatExecutor()
+            elif FloatExecutor.lower().startswith("n"):
                 print(os.getlogin(), ", das Programm wird gestoppt!")
                 exit()
-        elif ExecuterAbfrage.lower().startswith("f"):
-            NumberExecuter = str(input("Wollen Sie einen Integer verarbeiten? [Ja / Nein]\n"))
-            if NumberExecuter.lower().startswith("j"):
+        elif ExecutorAbfrage.lower().startswith("f"):
+            NumberExecutor = str(input("Wollen Sie einen Integer verarbeiten? [Ja / Nein]\n"))
+            if NumberExecutor.lower().startswith("j"):
                 print ("Zulässige Zeichen sind:\n +, -, *, /\n")
                 RechenopreatorInt = str(input("Wählen Sie ihren Rechenoperator.\n"))
                 IntZahl1 = int(input("Geben Sie ihr erste Zahl ein.\n"))
@@ -75,32 +74,32 @@ def Abfrage():
                 print("Ihre Verarbeitung beginnt nun!")
                 AbfrageBestanden = AbfrageBestanden + 1
                 RunIntExecutor()
-            elif NumberExecuter.lower().startswith("n"):
+            elif NumberExecutor.lower().startswith("n"):
                 print(os.getlogin(), "das Programm wird nun gestoppt!")
                 exit()
-        elif ExecuterAbfrage.lower().startswith("s"):
-            StringExecuter = str(input("Wollen Sie einen String konvertieren?  [Ja / Nein]\n"))
-            if StringExecuter.lower().startswith("j"):
+        elif ExecutorAbfrage.lower().startswith("s"):
+            StringExecutor = str(input("Wollen Sie einen String konvertieren?  [Ja / Nein]\n"))
+            if StringExecutor.lower().startswith("j"):
                 StringConvert = str(input("Geben Sie ihren String ein, welchen Sie konvertieren möchten.\n"))
                 StringConvertOperator = str(input("Geben Sie einen Operator zur Textverarbeitung an. Mögliche Operatoren sind:\n lowercase \n uppercase\n find\n swap\n"))
                 if StringConvertOperator == "find":
                     StringFind = str(input("Nach welchem Wort sollen wir suchen?\n"))
                     print("Ihre Verarbeitung beginnt nun!")
-                    RunStringExecuter()
+                    RunStringExecutor()
                 elif StringFind != "find":
                     print("Ihre Verarbeitung beginnt nun!")
-                RunStringExecuter()
-            elif StringExecuter.lower().startswith("n"):
+                RunStringExecutor()
+            elif StringExecutor.lower().startswith("n"):
                 print(os.getlogin(), ", das Programm wird gestoppt!")
                 exit()
             AbfrageBestanden = AbfrageBestanden + 1
-        elif ExecuterAbfrage.lower().startswith("r"):
+        elif ExecutorAbfrage.lower().startswith("r"):
             RandomZahl1= int(input("Geben Sie eine Zahl ein!\n"))
             RandomZahl2 = int(input("Geben Sie eine weitere Zahl ein!\n"))
             print("Ihre Zufallszahl ist: ",random.randint(RandomZahl1, RandomZahl2))
             AbfrageBestanden = AbfrageBestanden + 1
             exit()
-        elif ExecuterAbfrage.lower().startswith("c"):
+        elif ExecutorAbfrage.lower().startswith("c"):
             ConvertExecutor = str((input("Wollen Sie einen Wert konvertieren?  [Ja / Nein]\n")))
             if ConvertExecutor.lower().startswith("j"):
                 ConvertType = str(input("Geben Sie den Typ an, welchen Sie konvertieren wollen. Möglich sind: \n float [konvertiert in einen Integer (ganze Zahl)]\n Integer [konvertiert in einen float (Kommazahl)]\n String [Überprüfung auf Zahlen (digit)\n"))
@@ -123,7 +122,7 @@ def Abfrage():
                 print(os.getlogin(), ", das Programm wird gestoppt!")
                 exit()
 
-def RunFloatExecuter():
+def RunFloatExecutor():
     global Zahl1
     global Zahl2
     global RechenopreatorFloat
@@ -139,7 +138,7 @@ def RunFloatExecuter():
     else:
         Abfrage()
 
-def RunStringExecuter():
+def RunStringExecutor():
     global StringConvert
     global StringConvertOperator
     global StringFind
