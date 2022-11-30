@@ -64,7 +64,7 @@ def Abfrage():
             elif FloatExecutor.lower().startswith("n"):
                 print(os.getlogin(), ", das Programm wird gestoppt!")
                 exit()
-        elif ExecutorAbfrage.lower().startswith("f"):
+        elif ExecutorAbfrage.lower().startswith("n"):
             NumberExecutor = str(input("Wollen Sie einen Integer verarbeiten? [Ja / Nein]\n"))
             if NumberExecutor.lower().startswith("j"):
                 print ("Zulässige Zeichen sind:\n +, -, *, /\n")
@@ -186,4 +186,6 @@ def RunConvert():
         elif ConvertType.isdigit() == False:
             print ("Ihr String enthält keine Zahlen")
 
-Abfrage()
+
+while True:
+    Abfrage()
